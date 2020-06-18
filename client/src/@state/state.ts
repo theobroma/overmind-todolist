@@ -13,10 +13,12 @@ export type Todo = {
 };
 
 type State = {
+  filter: Filter;
+  newTodoTitle: string;
+  editingTodoTitle: string;
   todos: {
     [id: string]: Todo;
   };
-  filter: Filter;
   currentTodos: Todo[];
   activeTodoCount: number;
   hasCompletedTodos: boolean;
@@ -24,8 +26,10 @@ type State = {
 };
 
 export const state: State = {
-  todos: {},
   filter: Filter.ALL,
+  newTodoTitle: '',
+  editingTodoTitle: '',
+  todos: {},
   currentTodos: derived(({ todos, filter }: State) => {
     return Object.values(todos).filter((todo) => {
       switch (filter) {

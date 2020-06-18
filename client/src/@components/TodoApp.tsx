@@ -11,7 +11,7 @@ const TodoApp: React.FC = () => {
     <div>
       <header className="header">
         <h1>todos</h1>
-        {/* <input
+        <input
           className="new-todo"
           placeholder="What needs to be done?"
           value={state.newTodoTitle}
@@ -22,7 +22,7 @@ const TodoApp: React.FC = () => {
             if (event.keyCode !== 13) return;
             actions.addTodo();
           }}
-        /> */}
+        />
       </header>
       <section className="main">
         {/* <input

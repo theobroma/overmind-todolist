@@ -29,7 +29,7 @@ const TodoItem: React.FC<{
         <label>{todo.title}</label>
         <button
           className="destroy"
-          // onClick={() => actions.removeTodo(todo.id)}
+          onClick={() => actions.removeTodo(todo.id)}
         />
       </div>
       {/* isEditing */}
