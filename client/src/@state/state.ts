@@ -21,18 +21,7 @@ type State = {
 };
 
 export const state: State = {
-  todos: {
-    '1592455711786': {
-      completed: false,
-      id: '1592455711786',
-      title: '111',
-    },
-    '1592455711792': {
-      completed: true,
-      id: '1592455711792',
-      title: '222',
-    },
-  },
+  todos: {},
   filter: Filter.ALL,
   currentTodos: derived(({ todos, filter }: State) => {
     return Object.values(todos).filter((todo) => {
