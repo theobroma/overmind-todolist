@@ -10,6 +10,10 @@ export const addTodo: Action<string> = ({ state, effects }, title) => {
   };
 };
 
+export const toggleTodo: Action<string> = ({ state }, todoId) => {
+  state.todos[todoId].completed = !state.todos[todoId].completed;
+};
+
 export const changeFilter: Action<Filter> = ({ state }, filter) => {
   state.filter = filter;
 };

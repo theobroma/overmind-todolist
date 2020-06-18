@@ -1,14 +1,13 @@
 import * as React from 'react';
 import classNames from 'classnames';
-// import { useApp } from '../app';
-// import { Todo } from '../app/state';
 import { Todo } from '../@state/state';
+import { useOvermind } from '../@state';
 
 const TodoItem: React.FC<{
   todo: Todo;
   // isEditing: boolean;
 }> = ({ todo }) => {
-  // const { state, actions } = useApp();
+  const { state, actions } = useOvermind();
 
   return (
     <li
@@ -22,7 +21,7 @@ const TodoItem: React.FC<{
           className="toggle"
           type="checkbox"
           checked={todo.completed}
-          // onChange={() => actions.toggleTodo(todo.id)}
+          onChange={() => actions.toggleTodo(todo.id)}
         />
         {/* <label onDoubleClick={() => actions.editTodo(todo.id)}>
           {todo.title}
