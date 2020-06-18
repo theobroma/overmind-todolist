@@ -1,5 +1,5 @@
 import { Action } from 'overmind';
-// import { Filter } from './state';
+import { Filter } from './state';
 
 export const addTodo: Action<string> = ({ state }, title) => {
   const id = Date.now().toString();
@@ -8,4 +8,8 @@ export const addTodo: Action<string> = ({ state }, title) => {
     title,
     completed: false,
   };
+};
+
+export const changeFilter: Action<Filter> = ({ state }, filter) => {
+  state.filter = filter;
 };

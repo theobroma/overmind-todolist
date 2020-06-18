@@ -1,11 +1,11 @@
 import * as React from 'react';
-// import { useApp } from '../app';
 
 import TodoItem from './TodoItem';
 import TodoFooter from './TodoFooter';
+import { useOvermind } from '../@state';
 
 const TodoApp: React.FC = () => {
-  // const { state, actions } = useApp();
+  const { state, actions } = useOvermind();
 
   return (
     <div>
@@ -34,7 +34,7 @@ const TodoApp: React.FC = () => {
         /> */}
         <label htmlFor="toggle-all">Mark all as complete</label>
         <ul className="todo-list">
-          {[].map((todo: any) => {
+          {state.currentTodos.map((todo: any) => {
             return (
               <TodoItem key={todo.id} todo={todo} />
               // <TodoItem

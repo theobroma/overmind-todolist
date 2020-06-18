@@ -1,30 +1,25 @@
 import * as React from 'react';
 import classNames from 'classnames';
+import { useOvermind } from '../@state';
+import { Filter } from '../@state/state';
+import { pluralize } from '../@helpers/pluralize';
 // import { useApp } from '../app';
 // import { pluralize } from '../utils';
 // import { Filter } from '../app/state';
 
 const TodoFooter: React.FC = () => {
-  // const { state, actions } = useApp();
+  const { state, actions } = useOvermind();
 
   return (
     <footer className="footer">
       <span className="todo-count">
-        count
-        {/* <strong>{state.activeTodoCount}</strong>{' '}
-        {pluralize(state.activeTodoCount, 'item')} left */}
+        {/* <strong>{state.activeTodoCount}</strong>{' '} */}
+        {/* {pluralize(state.activeTodoCount, 'item')} left */}
+        <strong>777</strong>
+        {pluralize(777, 'item')} left
       </span>
       <ul className="filters">
         <li>
-          <a href="/">All</a>
-        </li>
-        <li>
-          <a href="/">All</a>
-        </li>
-        <li>
-          <a href="/">All</a>
-        </li>
-        {/* <li>
           <a
             href="/"
             className={classNames({ selected: state.filter === Filter.ALL })}
@@ -49,7 +44,7 @@ const TodoFooter: React.FC = () => {
           >
             Completed
           </a>
-        </li> */}
+        </li>
       </ul>
       {/* {state.hasCompletedTodos ? (
         <button
