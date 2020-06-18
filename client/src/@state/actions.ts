@@ -23,6 +23,14 @@ export const toggleTodo: Action<string> = ({ state }, todoId) => {
   state.todos[todoId].completed = !state.todos[todoId].completed;
 };
 
+export const toggleAllTodos: Action = ({ state }) => {
+  const isAllChecked = state.isAllTodosChecked;
+
+  state.currentTodos.forEach((todo) => {
+    todo.completed = !isAllChecked;
+  });
+};
+
 export const removeTodo: Action<string> = ({ state }, todoId) => {
   delete state.todos[todoId];
 };
