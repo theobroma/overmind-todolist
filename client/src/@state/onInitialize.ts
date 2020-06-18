@@ -1,25 +1,18 @@
 import { OnInitialize } from 'overmind';
-// import { Filter } from './state';
 export const onInitialize: OnInitialize = async (
-  { state, actions, effects },
-  overmind
+  { state, effects },
+  instance
 ) => {
-  const initialTodosData = {
-    '1592455711786': {
-      completed: false,
-      id: '1592455711786',
-      title: '111',
-    },
-    '1592455711792': {
-      completed: true,
-      id: '1592455711792',
-      title: '222',
-    },
-    '1592455711793': {
-      completed: true,
-      id: '1592455711793',
-      title: '333',
-    },
-  };
-  state.todos = initialTodosData;
+  // ===================================
+  state.todos = effects.storage.getTodos();
+  // ===================================
+  instance.reaction(
+    // Access and return some state to react to
+    ({ todos }) => todos,
+    // Do something with the returned value
+    (todos) => effects.storage.saveTodos(todos),
+    // If you return an object or array from the state you can set this to true.
+    // The reaction will run when any nested changes occur as well
+    { nested: true }
+  );
 };
