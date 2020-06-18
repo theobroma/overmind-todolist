@@ -18,6 +18,9 @@ type State = {
   };
   filter: Filter;
   currentTodos: Todo[];
+  activeTodoCount: number;
+  hasCompletedTodos: boolean;
+  isAllTodosChecked: boolean;
 };
 
 export const state: State = {
@@ -34,5 +37,14 @@ export const state: State = {
           return true;
       }
     });
+  }),
+  activeTodoCount: derived(({ todos }: State) => {
+    return Object.values(todos).filter((todo) => !todo.completed).length;
+  }),
+  hasCompletedTodos: derived(({ todos }: State) => {
+    return Object.values(todos).some((todo) => todo.completed);
+  }),
+  isAllTodosChecked: derived(({ currentTodos }: State) => {
+    return currentTodos.every((todo) => todo.completed);
   }),
 };

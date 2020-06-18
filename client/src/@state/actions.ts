@@ -1,11 +1,11 @@
 import { Action } from 'overmind';
 import { Filter } from './state';
 
-export const addTodo: Action<string> = ({ state }, title) => {
-  const id = Date.now().toString();
+export const addTodo: Action<string> = ({ state, effects }, title) => {
+  const id = effects.ids.create();
   state.todos[id] = {
     id,
-    title,
+    title: title + '',
     completed: false,
   };
 };
