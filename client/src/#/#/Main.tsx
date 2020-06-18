@@ -1,9 +1,10 @@
 import React from 'react';
-import styled from 'styled-components/macro';
+// import styled from 'styled-components/macro';
+import TodoApp from '../../@components/TodoApp';
 
-const Thing = styled.div`
-  color: red;
-`;
+// const Thing = styled.div`
+//   color: red;
+// `;
 
 interface Props {
   // activeTodoCount: number;
@@ -13,7 +14,11 @@ interface Props {
 const MainApp: React.FC<Props> = (props) => {
   return (
     <div className="App">
-      <Thing>Thing</Thing>
+      <section className="todoapp">
+        <div>
+          <TodoApp />
+        </div>
+      </section>
     </div>
   );
 };

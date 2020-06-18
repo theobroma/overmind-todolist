@@ -4,7 +4,6 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 // All styles
 import 'todomvc-app-css/index.css';
-import './index.css';
 import './@assets/styles/index.scss';
 
 const rootEl = document.getElementById('root');
