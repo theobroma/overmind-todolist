@@ -35,6 +35,14 @@ export const removeTodo: Action<string> = ({ state }, todoId) => {
   delete state.todos[todoId];
 };
 
+export const clearCompleted: Action = ({ state }) => {
+  Object.values(state.todos).forEach((todo) => {
+    if (todo.completed) {
+      delete state.todos[todo.id];
+    }
+  });
+};
+
 export const changeFilter: Action<Filter> = ({ state }, filter) => {
   state.filter = filter;
 };

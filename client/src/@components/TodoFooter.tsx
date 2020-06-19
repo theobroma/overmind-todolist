@@ -43,8 +43,9 @@ const TodoFooter: React.FC = () => {
       </ul>
       {state.hasCompletedTodos ? (
         <button
+          type="button"
           className="clear-completed"
-          // onClick={() => actions.clearCompleted()}
+          onClick={() => actions.clearCompleted()}
         >
           Clear completed
         </button>
