@@ -15,6 +15,7 @@ export type Todo = {
 type State = {
   filter: Filter;
   newTodoTitle: string;
+  editingTodoId: string | null;
   editingTodoTitle: string;
   todos: {
     [id: string]: Todo;
@@ -28,6 +29,7 @@ type State = {
 export const state: State = {
   filter: Filter.ALL,
   newTodoTitle: '',
+  editingTodoId: null,
   editingTodoTitle: '',
   todos: {},
   currentTodos: derived(({ todos, filter }: State) => {

@@ -8,7 +8,12 @@ export const addTodo: Action = ({ state, effects }) => {
     title: state.newTodoTitle,
     completed: false,
   };
+
   state.newTodoTitle = '';
+
+  if (state.filter === Filter.COMPLETED) {
+    effects.router.goTo('/active');
+  }
 };
 
 export const changeNewTodoTitle: Action<string> = ({ state }, title) => {
@@ -41,6 +46,22 @@ export const clearCompleted: Action = ({ state }) => {
       delete state.todos[todo.id];
     }
   });
+};
+
+export const editTodo: Action<string> = ({ state }, todoId) => {
+  state.editingTodoId = todoId;
+  state.editingTodoTitle = state.todos[todoId].title;
+};
+
+export const saveEditingTodoTitle: Action = ({ state }) => {
+  if (state.editingTodoTitle && state.editingTodoId !== null) {
+    state.todos[state.editingTodoId].title = state.editingTodoTitle;
+    state.editingTodoId = null;
+  }
+};
+
+export const cancelEditingTodo: Action = ({ state }) => {
+  state.editingTodoId = null;
 };
 
 export const changeFilter: Action<Filter> = ({ state }, filter) => {

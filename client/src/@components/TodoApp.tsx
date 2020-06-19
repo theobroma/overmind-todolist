@@ -3,6 +3,7 @@ import * as React from 'react';
 import TodoItem from './TodoItem';
 import TodoFooter from './TodoFooter';
 import { useOvermind } from '../@state';
+import { Todo } from '../@state/state';
 
 const TodoApp: React.FC = () => {
   const { state, actions } = useOvermind();
@@ -34,14 +35,13 @@ const TodoApp: React.FC = () => {
         />
         <label htmlFor="toggle-all">Mark all as complete</label>
         <ul className="todo-list">
-          {state.currentTodos.map((todo: any) => {
+          {state.currentTodos.map((todo: Todo) => {
             return (
-              <TodoItem key={todo.id} todo={todo} />
-              // <TodoItem
-              //   key={todo.id}
-              //   todo={todo}
-              //   isEditing={state.editingTodoId === todo.id}
-              // />
+              <TodoItem
+                key={todo.id}
+                todo={todo}
+                isEditing={state.editingTodoId === todo.id}
+              />
             );
           })}
         </ul>
