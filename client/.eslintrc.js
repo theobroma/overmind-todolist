@@ -8,15 +8,8 @@ module.exports = {
     'no-underscore-dangle': 0,
     'react/state-in-constructor': 0,
     'react/jsx-props-no-spreading': 0,
-    'jsx-a11y/label-has-associated-control': [
-      2,
-      {
-        labelComponents: ['CustomInputLabel'],
-        labelAttributes: ['label'],
-        controlComponents: ['CustomInput'],
-        depth: 3,
-      },
-    ],
+    'jsx-a11y/label-has-associated-control': 0,
+    'jsx-a11y/control-has-associated-label': 0,
     '@typescript-eslint/no-use-before-define': 0,
   },
   env: {

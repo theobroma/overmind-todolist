@@ -28,6 +28,7 @@ const TodoItem: React.FC<{
         </label> */}
         <label>{todo.title}</label>
         <button
+          type="button"
           className="destroy"
           onClick={() => actions.removeTodo(todo.id)}
         />
