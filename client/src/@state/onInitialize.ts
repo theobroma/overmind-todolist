@@ -1,7 +1,8 @@
 import { OnInitialize } from 'overmind';
+import { Filter } from './state';
 
 export const onInitialize: OnInitialize = async (
-  { state, effects },
+  { state, actions, effects },
   instance
 ) => {
   // ===================================
@@ -16,4 +17,10 @@ export const onInitialize: OnInitialize = async (
     // The reaction will run when any nested changes occur as well
     { nested: true }
   );
+  // ===================================
+  effects.router.initialize({
+    '/': () => actions.changeFilter(Filter.ALL),
+    '/active': () => actions.changeFilter(Filter.ACTIVE),
+    '/completed': () => actions.changeFilter(Filter.COMPLETED),
+  });
 };
